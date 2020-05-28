@@ -26,6 +26,6 @@ classdef Watson14 < handle
         wat = develop(wat);             % development from G -> P
         wat = mutate(wat);
         wat = recombine(wat);
-        wat = simulate(wat);            % manages simulation process
+        simulate(wat);            % manages simulation process
     end
 end

@@ -1,9 +1,13 @@
-function [outputArg1,outputArg2] = simulate(inputArg1,inputArg2)
+function simulate(wat)
 %--------------------------------------------------------------------------
 % simulate:
 % [insert description]
 %--------------------------------------------------------------------------
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
+
+for generation = 1 : wat.nGen
+    b.develop;
+    b.recombine;
+    b.mutate;
 end
 
+end
