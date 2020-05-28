@@ -4,7 +4,7 @@ classdef Watson14 < handle
 % [insert description]
 %--------------------------------------------------------------------------
     
-    properties
+    properties (Access = public)
         nGen
         nPop
         nTrait
