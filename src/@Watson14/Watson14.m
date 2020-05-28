@@ -1,13 +1,15 @@
 classdef Watson14 < handle
-    %UNTITLED Summary of this class goes here
-    %   Detailed explanation goes here
+%--------------------------------------------------------------------------
+% Watson14:
+% [insert description]
+%--------------------------------------------------------------------------
     
     properties
         nGen
         nPop
         nTraits
         G
-        B
+        GRP                     % Gene regulation network
         P
     end
     
@@ -16,7 +18,7 @@ classdef Watson14 < handle
             %UNTITLED Construct an instance of this class
             %   Detailed explanation goes here
             wat.G = zeros(1, nTraits, nPop);
-            wat.B = zeros(nTraits, nTraits, nPop);
+            wat.GRP = zeros(nTraits, nTraits, nPop);
             wat.P = zeros(1, nTraits, nPop);
             wat.nGen = nGen;
         end
