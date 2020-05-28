@@ -7,19 +7,19 @@ classdef Watson14 < handle
     properties
         nGen
         nPop
-        nTraits
-        G
-        GRP                     % Gene regulation network
-        P
+        nTrait
+        genotype
+        grNetwork                     % gene regulation network
+        phenotype
     end
     
     methods
         function wat = Watson14(nGen, nPop, nTraits)
             %UNTITLED Construct an instance of this class
             %   Detailed explanation goes here
-            wat.G = zeros(1, nTraits, nPop);
-            wat.GRP = zeros(nTraits, nTraits, nPop);
-            wat.P = zeros(1, nTraits, nPop);
+            wat.genotype = zeros(1, nTraits, nPop);
+            wat.grNetwork = zeros(nTraits, nTraits, nPop);
+            wat.phenotype = zeros(1, nTraits, nPop);
             wat.nGen = nGen;
         end
         
