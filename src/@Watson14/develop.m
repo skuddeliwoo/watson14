@@ -1,9 +1,10 @@
-function [outputArg1,outputArg2] = develop(inputArg1,inputArg2)
+function develop(wat, nDevSteps, fMagFactor, fDecayRate)
 %--------------------------------------------------------------------------
 % develop:
 % [insert description]
 %--------------------------------------------------------------------------
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
+for step = 1 : nDevSteps
+       
+end
 end
 

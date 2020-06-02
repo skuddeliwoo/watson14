@@ -17,15 +17,16 @@ classdef Watson14 < handle
         function wat = Watson14(nGen, nPop, nTraits)
             %UNTITLED Construct an instance of this class
             %   Detailed explanation goes here
-            wat.genotype = zeros(1, nTraits, nPop);
+            wat.genotype = zeros(nTraits, nPop);
             wat.grNetwork = zeros(nTraits, nTraits, nPop);
-            wat.phenotype = zeros(1, nTraits, nPop);
+            wat.phenotype = zeros(nTraits, nPop);
             wat.nGen = nGen;
         end
         
-        wat = develop(wat);             % development from G -> P
-        wat = mutate(wat);
-        wat = recombine(wat);
+        depict(wat);              % graphical output of sim
+        develop(wat, nDevSteps, fMagFactor, fDecayRate);  % development from G -> P
+        mutate(wat);
+        recombine(wat);
         simulate(wat);            % manages simulation process
     end
 end
