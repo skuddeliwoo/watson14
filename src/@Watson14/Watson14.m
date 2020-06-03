@@ -23,10 +23,13 @@ classdef Watson14 < handle
             wat.nGen = nGen;
         end
         
+        calcFitness(wat);
+        calcHebb(wat);
         depict(wat);              % graphical output of sim
         develop(wat, nDevSteps, fMagFactor, fDecayRate);  % development from G -> P
         mutate(wat);
         recombine(wat);
         simulate(wat);            % manages simulation process
+        
     end
 end

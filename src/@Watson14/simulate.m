@@ -4,10 +4,11 @@ function simulate(wat)
 % [insert description]
 %--------------------------------------------------------------------------
 %% hidden parameters:
-%for develop:
+% for develop:
 nDevSteps = 8;
-fMagFactor = 1;
-fDecayRate = 0.2;
+fMagFactor = 1;    % from paper
+fDecayRate = 0.2;  % from paper
+% for
 
 %% simulation process managment
 for generation = 1 : wat.nGen

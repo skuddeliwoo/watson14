@@ -1,7 +1,8 @@
 function mutate(wat)
 %--------------------------------------------------------------------------
 % mutate:
-% [insert description]
+% 
+% jedes individuum: zufälligen trait in G mutieren & same for B
 %--------------------------------------------------------------------------
 end
 

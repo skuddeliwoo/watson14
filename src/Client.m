@@ -18,6 +18,6 @@ wat.depict();
 % implementierung)
 % - develop: implementierung dreidimensionaler multiplikation
 % (eventuell for-schleife notwendig?)
-%
+% - calcHebb implementieren
 end
 
