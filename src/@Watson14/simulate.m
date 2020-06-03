@@ -5,7 +5,7 @@ function simulate(wat)
 %--------------------------------------------------------------------------
 %% hidden parameters:
 % for develop:
-nDevSteps = 8;
+nDevSteps = 10;
 fMagFactor = 1;    % from paper
 fDecayRate = 0.2;  % from paper
 % for

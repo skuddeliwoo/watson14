@@ -1,7 +1,8 @@
-function calcFitness(wat)
+function hebb = calcHebb(wat)
 %--------------------------------------------------------------------------
-% calcFitness:
+% calcHebb:
 % [insert description]
 %--------------------------------------------------------------------------
+hebb = meanMagnitudeOfResultForScale * wat.target * wat.target'
 end
 

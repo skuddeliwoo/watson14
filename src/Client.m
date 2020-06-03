@@ -16,8 +16,8 @@ wat.depict();
 %% Todo-list:
 % - properties von Watson14 auf privat setzen (ganz am Ende der
 % implementierung)
-% - develop: implementierung dreidimensionaler multiplikation
-% (eventuell for-schleife notwendig?)
-% - calcHebb implementieren
+% - develop: überprüfung auf Plausibilität
+% - calcHebb: Multiplikationsfaktor noch implementieren (siehe Paper Figure
+% 1 C)
 end
 

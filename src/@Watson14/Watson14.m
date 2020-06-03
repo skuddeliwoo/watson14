@@ -11,6 +11,7 @@ classdef Watson14 < handle
         genotype
         grNetwork                     % gene regulation network
         phenotype
+        target                        % target phenotype (selective enviroment)
     end
     
     methods
@@ -23,6 +24,9 @@ classdef Watson14 < handle
             wat.nGen = nGen;
             wat.nTrait = nTrait;
             wat.nPop = nPop;
+            wat.target = rand(nTrait, 1);
+                wat.target( wat.target < 0.5 ) = -1;
+                wat.target( wat.target >= 0.5) =  1;
         end
         
         calcFitness(wat);
