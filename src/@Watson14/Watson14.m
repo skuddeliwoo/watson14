@@ -14,13 +14,15 @@ classdef Watson14 < handle
     end
     
     methods
-        function wat = Watson14(nGen, nPop, nTraits)
+        function wat = Watson14(nGen, nPop, nTrait)
             %UNTITLED Construct an instance of this class
             %   Detailed explanation goes here
-            wat.genotype = zeros(nTraits, nPop);
-            wat.grNetwork = zeros(nTraits, nTraits, nPop);
-            wat.phenotype = zeros(nTraits, nPop);
+            wat.genotype = zeros(nTrait, nPop);
+            wat.grNetwork = zeros(nTrait, nTrait, nPop);
+            wat.phenotype = zeros(nTrait, nPop);
             wat.nGen = nGen;
+            wat.nTrait = nTrait;
+            wat.nPop = nPop;
         end
         
         calcFitness(wat);
