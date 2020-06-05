@@ -1,24 +1,30 @@
 function develop(wat, nDevSteps, fMagFactor, fDecayRate)
 %--------------------------------------------------------------------------
-% develop:
-% [insert description]
+% develop: model the ontogenetic trajectory of the population
+% starting from the genotype, (P(0) = G), the phenotype develops over time
+% as in P(t+1) = P(t) + tau1 * tanh(B * P(t)) - tau2 * P(t), with
+% - tau1: fMagFactor, defines the magnitude of developmental bias
+% - tau2: fDecayRate, defines the ___???___
 %--------------------------------------------------------------------------
 
+% (P(0) = G)
 wat.phenotype = wat.genotype;
 
 for step = 1 : nDevSteps
-       % P(t+1) = P(t) + tau1 * tanh(B x P(t)) - tau2 * P(t)
-       % !!! vorläufiger Code. Muss auf Plausibilität geprüft werden !!!
+    % transfer GRN and phenotypes into cells for more elegant computing
     cellGRN = mat2cell(wat.grNetwork, wat.nTrait, wat.nTrait, ones(1, wat.nPop));
     cellGRN = permute(cellGRN, [1,3,2]);
     cellPheno = mat2cell(wat.phenotype, wat.nTrait, ones(1, wat.nPop));
     
-    % Kreuzprodukt macht doch gar keinen Sinn, oder? Sollte es nicht
-    % MatMult sein?
+    % calculate B * P(t), and transfer back into a matrix
     prod = cell2mat(cellfun(@mtimes, cellGRN, cellPheno, 'UniformOutput', false));
+    
+    % calculate next phenotype for this developmental time step
     wat.phenotype = wat.phenotype + fMagFactor * (tanh(prod)) - fDecayRate * wat.phenotype;
     
-       % mutate here?
+    % performance overhaul: this implementation transforms phenotypes to
+    % cells and back. wouldn't it be faster if we stored it in cells from
+    % the beginning?
 end
 end
 
