@@ -4,9 +4,9 @@ function Client
 % [insert description]
 %--------------------------------------------------------------------------
 %% parameter settings
-nGen = 1;
-nPop = 2;
-nTraits = 5;
+nGen = 2;
+nPop = 5;
+nTraits = 3;
 
 %% sim start
 wat = Watson14(nGen, nPop, nTraits);

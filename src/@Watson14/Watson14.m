@@ -29,7 +29,7 @@ classdef Watson14 < handle
                 wat.target( wat.target >= 0.5) =  1;
         end
         
-        calcFitness(wat);
+        fit = calcFitness(wat);
         calcHebb(wat);
         depict(wat);              % graphical output of sim
         develop(wat, nDevSteps, fMagFactor, fDecayRate);  % development from G -> P
