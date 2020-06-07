@@ -12,7 +12,7 @@ wat.phenotype = wat.genotype;
 tic
 for step = 1 : nDevSteps
     % transfer GRN and phenotypes into cells for more elegant computing
-    cellGRN = mat2cell(wat.grNetwork, wat.nTrait, wat.nTrait, ones(1, wat.nPop));
+    cellGRN = mat2cell(wat.grn, wat.nTrait, wat.nTrait, ones(1, wat.nPop));
     cellGRN = permute(cellGRN, [1,3,2]);
     cellPheno = mat2cell(wat.phenotype, wat.nTrait, ones(1, wat.nPop));
     
@@ -33,7 +33,7 @@ for step = 1:nDevSteps
     prod = zeros(wat.nTrait, wat.nPop);
     for individual = 1:wat.nPop
         prod(:, individual) =...
-            wat.grNetwork(:,:,individual) * wat.phenotype(:,individual);
+            wat.grn(:,:,individual) * wat.phenotype(:,individual);
     end
     wat.phenotype = wat.phenotype...
         + fMagFactor * (tanh(prod))...

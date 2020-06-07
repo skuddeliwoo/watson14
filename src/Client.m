@@ -5,7 +5,7 @@ function Client
 %--------------------------------------------------------------------------
 %% parameter settings
 nGen = 20000;
-nPop = 3;
+nPop = 8;
 nTraits = 5;
 
 %% sim start
@@ -14,10 +14,12 @@ wat.simulate();
 wat.depict();
 
 %% Todo-list:
-% - properties von Watson14 auf privat setzen (ganz am Ende der
+% - properties 1von Watson14 auf privat setzen (ganz am Ende der
 % implementierung)
-% - develop: überprüfung auf Plausibilität
+% - develop: überprüfung auf Plausibilität & Kommentierung
 % - calcHebb: Multiplikationsfaktor noch implementieren (siehe Paper Figure
-% 1 C)
+% 1 C) und Kommentierung
+% - mutate: Vielleicht bessere Lösung für +-1 cap, und eventuell variables
+% cap?
 end
 
