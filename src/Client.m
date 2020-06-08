@@ -4,21 +4,21 @@ function Client
 % [insert description]
 %--------------------------------------------------------------------------
 %% parameter settings
-nGen = 20;      % paper: 8*10^5
+nGen = 2000;      % paper: 8*10^5
 nPop = 8;       % na in paper
 nTraits = 8;    % paper: 8
 
 %% sim start
+tic
 wat = Watson14(nGen, nPop, nTraits);
 wat.simulate();
 wat.depict();
+toc
 
 %% Todo-list:
 % - properties von Watson14 auf privat setzen (ganz am Ende der
 % implementierung)
 % - develop: überprüfung auf Plausibilität & Kommentierung
-% - calcHebb: Multiplikationsfaktor noch implementieren (siehe Paper Figure
-% 1 C) und Kommentierung
 % - mutate: Vielleicht bessere Lösung für +-1 cap, und eventuell variables
 % cap?
 % - Watson14: Kommentierung
