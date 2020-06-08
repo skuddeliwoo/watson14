@@ -5,8 +5,8 @@ function Client
 %--------------------------------------------------------------------------
 %% parameter settings
 nGen = 20;      % paper: 8*10^5
-nPop = 8;       % paper: 8
-nTraits = 5;
+nPop = 8;       % na in paper
+nTraits = 8;    % paper: 8
 
 %% sim start
 wat = Watson14(nGen, nPop, nTraits);
