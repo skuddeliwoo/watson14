@@ -19,10 +19,9 @@ toc
 % - properties von Watson14 auf privat setzen (ganz am Ende der
 % implementierung)
 % - develop: überprüfung auf Plausibilität & Kommentierung
-% - mutate: Vielleicht bessere Lösung für +-1 cap, und eventuell variables
-% cap?
 % - Watson14: Kommentierung
 % - calcFitness: Formel aus Paper (fitness = 1+phenotype*target)
+% - depict: 5 most distance (eventuell 5 least distant)
 
 %% Fragen an Pauli:
 % - develop: for-loop
