@@ -3,6 +3,7 @@ function depict(wat)
 % depict:
 % B und Hebb
 %--------------------------------------------------------------------------
-
+wat.calcHebb();
+wat.sortByDistance();
 end
 

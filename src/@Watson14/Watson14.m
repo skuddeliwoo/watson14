@@ -12,6 +12,7 @@ classdef Watson14 < handle
         grn                     % gene regulation network
         phenotype
         target                  % target phenotype (selective enviroment)
+        hebb
     end
     
     methods
@@ -36,6 +37,7 @@ classdef Watson14 < handle
         mutate(wat, fMutMagCapGene, fMutMagCapGRN);
         recombine(wat);
         simulate(wat);            % manages simulation process
+        sortByDistance(wat);
         
     end
 end
