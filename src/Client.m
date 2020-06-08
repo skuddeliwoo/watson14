@@ -4,7 +4,7 @@ function Client
 % [insert description]
 %--------------------------------------------------------------------------
 %% parameter settings
-nGen = 2000;      % paper: 8*10^5
+nGen = 200;      % paper: 8*10^5
 nPop = 8;       % na in paper
 nTrait = 8;     % paper: 8
 
@@ -21,7 +21,7 @@ toc
 % - develop: überprüfung auf Plausibilität & Kommentierung
 % - Watson14: Kommentierung
 % - calcFitness: Formel aus Paper (fitness = 1+phenotype*target)
-% - depict: 5 most distance (eventuell 5 least distant)
+% - depict: eventuell 5 least distant
 
 %% Fragen an Pauli:
 % - develop: for-loop

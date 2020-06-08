@@ -37,7 +37,7 @@ classdef Watson14 < handle
         mutate(wat, fMutMagCapGene, fMutMagCapGRN);
         recombine(wat);
         simulate(wat);            % manages simulation process
-        sortByDistance(wat);
+        sortedGrns = sortByDistance(wat);
         
     end
 end

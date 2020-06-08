@@ -8,6 +8,6 @@ distanceSum = sum(abs(wat.hebb - wat.grn), [1,2]);
 % get the sorted indices in ascending order
 [~, sortedIndices] = sort(distanceSum);
 % output the grns in ascending order
-sortedGrns = wat.grn(sortedIndices);
+sortedGrns = wat.grn(:,:,sortedIndices);
 end
 
