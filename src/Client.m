@@ -6,10 +6,10 @@ function Client
 %% parameter settings
 nGen = 20;      % paper: 8*10^5
 nPop = 8;       % na in paper
-nTraits = 8;    % paper: 8
+nTrait = 8;     % paper: 8
 
 %% sim start
-wat = Watson14(nGen, nPop, nTraits);
+wat = Watson14(nGen, nPop, nTrait);
 wat.simulate();
 wat.depict();
 
