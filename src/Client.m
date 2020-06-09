@@ -4,7 +4,7 @@ function Client
 % [insert description]
 %--------------------------------------------------------------------------
 %% parameter settings
-nGen = 200;      % paper: 8*10^5
+nGen = 2000;      % paper: 8*10^5
 nPop = 8;       % na in paper
 nTrait = 8;     % paper: 8
 
@@ -16,6 +16,8 @@ wat.depict();
 toc
 
 %% Todo-list:
+% - modularität!!!
+% - watson14 ergebnisse reproduzieren
 % - properties von Watson14 auf privat setzen (ganz am Ende der
 % implementierung)
 % - develop: überprüfung auf Plausibilität & Kommentierung
