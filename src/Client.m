@@ -5,7 +5,7 @@ function Client
 %--------------------------------------------------------------------------
 %% parameter settings
 nGen = 2000;      % paper: 8*10^5
-nPop = 8;       % na in paper
+nPop = 20;       % na in paper
 nTrait = 8;     % paper: 8
 
 %% sim start
@@ -27,7 +27,6 @@ toc
 
 %% Fragen an Pauli:
 % - develop: for-loop
-% - graphische Ausgabe?
 % - code von ihm copy pasten?
 end
 
