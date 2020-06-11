@@ -1,10 +1,10 @@
-function fit = calcFitness(wat)
+function fit = calcFitness(con)
 %--------------------------------------------------------------------------
 % calcFitness:
 % [insert description]
 %--------------------------------------------------------------------------
     % objective function (from GATutorial)
-    diff = wat.phenotype - wat.target;
+    diff = con.pop.phenotype - con.target;
     objeval = sum(diff.*diff,1);
 
     % calcFitness (from GATutorial)
@@ -14,7 +14,7 @@ function fit = calcFitness(wat)
         fitness = 1+(mean(objeval)-objeval) / sigma; % Sigma Scaling??
         fitness(fitness<=0) = 0;
     else
-        fitness = ones(1,wat.nPop);
+        fitness = ones(1,con.nPop);
     end
 
     % Normalise fitness values:

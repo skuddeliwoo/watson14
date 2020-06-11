@@ -4,15 +4,15 @@ function Client
 % [insert description]
 %--------------------------------------------------------------------------
 %% parameter settings
-nGen = 2000;      % paper: 8*10^5
-nPop = 20;       % na in paper
+nGen = 30000;      % paper: 8*10^5
+nPop = 12;       % na in paper
 nTrait = 8;     % paper: 8
 
 %% sim start
-wat = Watson14(nGen, nPop, nTrait);
+con = Controller(nGen, nPop, nTrait);
 tic
-wat.simulate();
-wat.depict();
+con.simulate();
+con.depict();
 toc
 
 %% Todo-list:
