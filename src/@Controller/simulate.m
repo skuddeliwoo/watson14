@@ -18,7 +18,9 @@ fMutMagCapGRN = 1/15 * fMutMagCapGene;      % paper: 0.15*fMutMagCapGene
 
 %% simulation process managment
 for generation = 1 : con.nGen
-    disp("gen: " + generation + "______________________________________");
+    if (mod(generation, con.nGen/100) == 0)
+        disp(append('progress: ',num2str(generation*100/con.nGen),'%'));
+    end
     con.pop = con.pop.develop(nDevSteps, fMagFactor, fDecayRate);
     con.pop = con.pop.recombine(con.calcFitness());
     con.pop = con.pop.mutate(fMutMagCapGene, fMutMagCapGRN);
