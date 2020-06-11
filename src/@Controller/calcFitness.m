@@ -2,6 +2,7 @@ function fit = calcFitness(con)
 %--------------------------------------------------------------------------
 % calcFitness:
 % [insert description]
+% calcFitness: Formel aus Paper (fitness = 1+phenotype*target)
 %--------------------------------------------------------------------------
     % objective function (from GATutorial)
     diff = con.pop.phenotype - con.target;

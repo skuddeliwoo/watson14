@@ -4,7 +4,7 @@ function Client
 % [insert description]
 %--------------------------------------------------------------------------
 %% parameter settings
-nGen = 30000;      % paper: 8*10^5
+nGen = 10000;      % paper: 8*10^5
 nPop = 12;       % na in paper
 nTrait = 8;     % paper: 8
 
