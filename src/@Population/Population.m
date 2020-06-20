@@ -1,19 +1,20 @@
 classdef Population
-    %POPULATION Summary of this class goes here
-    %   Detailed explanation goes here
+%--------------------------------------------------------------------------
+% Population:
+%
+%--------------------------------------------------------------------------
     
     properties
-        nPop
-        nTrait
-        genotype
-        grn                     % gene regulation network
-        phenotype
+        nPop                    % amount of individuals
+        nTrait                  % amount of traits per individual
+        genotype                % numerical value with range: [-1 , 1]
+        grn                     % gene regulation network with range: [-1 , 1]
+        phenotype               % numerical value with range: [-1 , 1]
     end
     
     methods
+        % constructor
         function pop = Population(nPop, nTrait)
-            %POPULATION Construct an instance of this class
-            %   Detailed explanation goes here
             pop.nTrait = nTrait;
             pop.nPop = nPop;
             pop.genotype = zeros(nTrait, nPop);
@@ -21,6 +22,7 @@ classdef Population
             pop.phenotype = zeros(nTrait, nPop);
         end
         
+        % functions
         pop = develop(pop, nDevSteps, fMagFactor, fDecayRate);  % development from G -> P
         pop = mutate(pop, fMutMagCapGene, fMutMagCapGRN);
         pop = recombine(pop, fitness);

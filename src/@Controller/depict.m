@@ -1,7 +1,7 @@
 function depict(con)
 %--------------------------------------------------------------------------
-% depict:
-% B und Hebb
+% depict: plots the Hebb matrix and GRN matrices of some chosen
+% individuals as heatmaps 
 %--------------------------------------------------------------------------
 % calcHebb to calculate the Hebb matrix for the last generation
 con.calcHebb();
