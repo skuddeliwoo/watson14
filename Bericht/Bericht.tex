@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{BerichtTitle}
+\date{22.06.2020}
+\author{Simon Pirkl, Andreas Rohrbach}
+
+\begin{document}
+
+\maketitle
+% \newpage
+
+\tableofcontents
+\newpage
+
+\section{Stuff / Ideas / Todos}
+
+\subsection{Topic}
+\subsubsection{Research question}
+Watson et al derive their results from an evolutionary model containing a single representative individual undergoing individual mutations, motivating this model from the assumption of SSWM (strong selection, weak mutation). Do their results still hold in a more realistic model of evolution involving sexual recombination?
+
+\subsubsection{Adaptive theory}
+Watson et al’s central result is that correlations in their single gene regulation network evolve according to Hebb’s rule: if evolution selects a correlation of multiple gene states, those gene states will also become developmentally correlated. Since mutation and sexual recombination generate greater genetic variation, this could lead to correlations evolving not in accordance with Hebb's rule. However, we postulate that Hebb’s rule is driven not by mutation and recombination, but by selection.
+
+\subsubsection{Research hypothesis}
+If we reproduce Watson et al’s experiment 1 (single selective environment) for a network population with mutation and recombination, and our adaptive theory is correct, we predict that Hebb’s rule will apply to the evolved networks.
+
+\subsection{cheat sheet}
+include a graphic:
+
+% \begin{figure}[h!]
+% 	\includegraphics[width=\linewidth]{./img/dummy.jpg}
+% 	\caption{This is just a dummy graphic}
+% 	\label{fig:dummy}
+% \end{figure}
+
+
+\section{Introduction}
+
+- 
+
+\section{Foundation}
+
+- (evo devo)
+- grns
+- grn as matrix
+- hebb
+
+% some inline math: $f(x) = \sqrt{4*\pi}$ , or not:
+% \begin{equation}
+% 	f(x) = \frac{x^2}{7x}
+% \end{equation}
+
+% matrices:
+% \begin{equation}
+% \left[
+% \begin{matrix}
+% 1 & 0 & 1\\
+% 0 & 1 & 0
+% \end{matrix}
+% \right]
+% \end{equation}
+
+\section{Methods}
+
+- traits, genotype and phenotype as column vector with values in [-1; 1]
+- formulas for:
+	- evolution of phenotype
+	- selection and recombination
+	- mutation
+	- hebb
+
+
+
+\section{Results}
+
+- for these parameters, this output
+- simulation with differing population sizes (common target)
+
+\section{Discussion}
+
+- interpret results
+- so much gentic variation, that genes are more important than grn?
+- from where parameters like 1/15 for mutational rate of gene to grn?
+
+\newpage
+
+
+\begin{appendix}
+  \listoffigures
+  \listoftables
+\end{appendix}
+
+\end{document}
