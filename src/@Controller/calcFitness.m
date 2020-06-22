@@ -4,21 +4,27 @@ function fit = calcFitness(con)
 % [insert description]
 % calcFitness: Formel aus Paper (fitness = 1+phenotype*target)
 %--------------------------------------------------------------------------
-    % objective function (from GATutorial)
-    diff = con.pop.phenotype - con.target;
-    objeval = sum(diff.*diff,1);
+%     % objective function (from GATutorial)
+%     diff = con.pop.phenotype - con.target;
+%     objeval = sum(diff.*diff,1);
+% 
+%     % calcFitness (from GATutorial)
+%     % Calculate standard deviation of fitnesses:
+%     sigma = std(objeval);
+%     if sigma ~= 0
+%         fitness = 1+(mean(objeval)-objeval) / sigma; % Sigma Scaling??
+%         fitness(fitness<=0) = 0;
+%     else
+%         fitness = ones(1,con.nPop);
+%     end
+% 
+%     % Normalise fitness values:
+%     fit = fitness/sum(fitness);
+% 
+fitness = con.target' * con.pop.phenotype + 1;
 
-    % calcFitness (from GATutorial)
-    % Calculate standard deviation of fitnesses:
-    sigma = std(objeval);
-    if sigma ~= 0
-        fitness = 1+(mean(objeval)-objeval) / sigma; % Sigma Scaling??
-        fitness(fitness<=0) = 0;
-    else
-        fitness = ones(1,con.nPop);
-    end
+con.foo(end+1,:) = fitness;
 
-    % Normalise fitness values:
-    fit = fitness/sum(fitness);
+fit = fitness/sum(fitness);
 end
 

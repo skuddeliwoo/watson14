@@ -11,6 +11,7 @@ classdef Controller < handle
         target                  % target phenotype (selective enviroment)
         hebb
         pop
+        foo
     end
     
     methods
