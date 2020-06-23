@@ -4,7 +4,7 @@ function con = Client
 % [insert description]
 %--------------------------------------------------------------------------
 %% parameter settings
-nGen = 5000;      % paper: 8*10^5
+nGen = 500;      % paper: 8*10^5
 nPop = 50;       % na in paper
 nTrait = 8;     % paper: 8
 
@@ -12,14 +12,10 @@ nTrait = 8;     % paper: 8
 con = Controller(nGen, nPop, nTrait);
 tic
 
-con.foo = zeros(0, con.nPop);
 con.target = [1; 1; -1; -1; -1; 1 ; -1; 1];
 con.simulate();
-figure(2)
-plot(1:nGen, con.foo)
 figure(1)
 con.depict();
-con.foo(end,:)
 toc
 
 %% Todo-list:
