@@ -19,8 +19,9 @@ for step = 1:nDevSteps
         + fMagFactor * (tanh(prod))...
         - fDecayRate * pop.phenotype;
     
-    if (max(pop.phenotype) > 1)
-        disp('err')
-    end
+    
+    % cap magnitude at +- 1
+    pop.phenotype(pop.phenotype > 1) = 1;
+    pop.phenotype(pop.phenotype < -1) = -1;
 end
 end
