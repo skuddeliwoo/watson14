@@ -17,6 +17,7 @@ con.simulate();
 figure(1)
 con.depict();
 toc
+con.pop.savedPhenos
 
 %% Todo-list:
 % - !!!!!!! develop: limit to 1 / -1

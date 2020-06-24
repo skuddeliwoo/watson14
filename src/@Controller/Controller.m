@@ -11,7 +11,6 @@ classdef Controller < handle
         target                  % target phenotype (selective enviroment)
         hebb
         pop
-        foo
     end
     
     methods
@@ -22,7 +21,7 @@ classdef Controller < handle
             con.nGen = nGen;
             con.nTrait = nTrait;
             con.nPop = nPop;
-            con.pop = Population(nPop, nTrait);
+            con.pop = Population(nPop, nTrait, nGen);
             con.target = rand(nTrait, 1);
                 con.target( con.target < 0.5 ) = -1;
                 con.target( con.target >= 0.5) =  1;
