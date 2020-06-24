@@ -28,6 +28,7 @@ classdef Controller < handle
         end
         
         fit = calcFitness(con);
+        grnSimilarity = calcGrnSimilarity(con);
         calcHebb(con);
         depict(con);              % graphical output of sim
         simulate(con);            % manages simulation process

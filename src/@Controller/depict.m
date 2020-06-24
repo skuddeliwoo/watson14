@@ -3,12 +3,13 @@ function depict(con)
 % depict: plots the Hebb matrix and GRN matrices of some chosen
 % individuals as heatmaps 
 %--------------------------------------------------------------------------
+%% figure 1:
 % calcHebb to calculate the Hebb matrix for the last generation
 con.calcHebb();
 % get grn matrices ordered by distance to the Hebb matrix
 grn = con.sortByDistance();
 if con.nPop >= 3
-    
+    figure(1);
 % RGB matrix as colormap for heatmap (blue -> white -> red)    
     map = [ 0   , 0   , 1   ; ...
             0.2 , 0.2 , 1   ; ...
@@ -67,5 +68,10 @@ if con.nPop >= 3
     caxis(h, [-scale scale]);
 end
 
+%% figure 2:
+
+grnSimilarity = con.calcGrnSimilarity();
+figure(2);
+plot(1:con.nGen, grnSimilarity);
 end
 

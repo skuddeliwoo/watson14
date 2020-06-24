@@ -4,7 +4,7 @@ function con = Client
 % [insert description]
 %--------------------------------------------------------------------------
 %% parameter settings
-nGen = 500;      % paper: 8*10^5
+nGen = 1000;      % paper: 8*10^5
 nPop = 50;       % na in paper
 nTrait = 8;     % paper: 8
 
@@ -14,10 +14,8 @@ tic
 
 con.target = [1; 1; -1; -1; -1; 1 ; -1; 1];
 con.simulate();
-figure(1)
 con.depict();
 toc
-con.pop.savedPhenos
 
 %% Todo-list:
 % - !!!!!!! develop: limit to 1 / -1

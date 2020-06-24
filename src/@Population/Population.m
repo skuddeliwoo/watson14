@@ -10,7 +10,7 @@ classdef Population
         genotype                % numerical value with range: [-1 , 1]
         grn                     % gene regulation network with range: [-1 , 1]
         phenotype               % numerical value with range: [-1 , 1]
-        savedPhenos
+        savedGrn               % saved grns over time
     end
     
     methods
@@ -21,11 +21,11 @@ classdef Population
             pop.genotype = zeros(nTrait, nPop);
             pop.grn = zeros(nTrait, nTrait, nPop);
             pop.phenotype = zeros(nTrait, nPop);
-            pop.savedPhenos = zeros(nTrait, nPop, nGen);
+            pop.savedGrn = zeros(nTrait, nTrait, nPop, nGen);
         end
         
         % functions
-        pop = develop(pop, nDevSteps, fMagFactor, fDecayRate, generation);  % development from G -> P
+        pop = develop(pop, nDevSteps, fMagFactor, fDecayRate);  % development from G -> P
         pop = mutate(pop, fMutMagCapGene, fMutMagCapGRN);
         pop = recombine(pop, fitness);
     end

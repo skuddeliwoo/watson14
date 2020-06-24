@@ -1,4 +1,4 @@
-function pop = develop(pop, nDevSteps, fMagFactor, fDecayRate, generation)
+function pop = develop(pop, nDevSteps, fMagFactor, fDecayRate)
 %--------------------------------------------------------------------------
 % develop: model the ontogenetic trajectory of the population
 % starting from the genotype, (P(0) = G), the phenotype develops over time
@@ -24,7 +24,4 @@ for step = 1:nDevSteps
     pop.phenotype(pop.phenotype > 1) = 1;
     pop.phenotype(pop.phenotype < -1) = -1;
 end
-
-pop.savedPhenos(:,:,generation) = pop.phenotype;
-
 end

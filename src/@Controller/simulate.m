@@ -16,13 +16,14 @@ fMutMagCapGRN = 1/15 * fMutMagCapGene;      % paper: 0.15*fMutMagCapGene
 %% simulation process managment
 for generation = 1 : con.nGen
     % simple progress display (for longer simulations)
-    if (mod(generation, con.nGen/100) == 0)
+    if (mod(generation, con.nGen/1000) == 0)
         disp(append('progress: ',num2str(generation*100/con.nGen),'%'));
     end
+    % save gene regulation networks in every generation
+    con.pop.savedGrn(:, :, :, generation) = con.pop.grn;
     % invoke functions in correct order
-    con.pop = con.pop.develop(nDevSteps, fMagFactor, fDecayRate, generation);
+    con.pop = con.pop.develop(nDevSteps, fMagFactor, fDecayRate);
     con.pop = con.pop.recombine(con.calcFitness());
     con.pop = con.pop.mutate(fMutMagCapGene, fMutMagCapGRN);
 end
-
 end
