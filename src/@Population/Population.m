@@ -1,32 +1,36 @@
 classdef Population
 %--------------------------------------------------------------------------
-% Population:
-%
+% Population: contains attributes and methods for a set of individuals.
+% Only contains methods which directly influences the individuals.
+% One individual represents a small group of living beings.
 %--------------------------------------------------------------------------
     
+    %% attributes
     properties
-        nPop                    % amount of individuals
-        nTrait                  % amount of traits per individual
-        genotype                % numerical value with range: [-1 , 1]
-        grn                     % gene regulation network with range: [-1 , 1]
-        phenotype               % numerical value with range: [-1 , 1]
-        savedGrn               % saved grns over time
+        nPop                 % amount of individuals
+        nTrait               % amount of traits per individual
+        genotype             % numerical value with range: [-1 , 1]
+        grn                  % gene regulation network with range: [-1 , 1]
+        phenotype            % numerical value with range: [-1 , 1]
     end
     
     methods
-        % constructor
-        function pop = Population(nPop, nTrait, nGen)
+        %% constructor
+        function pop = Population(nPop, nTrait)
             pop.nTrait = nTrait;
             pop.nPop = nPop;
             pop.genotype = zeros(nTrait, nPop);
             pop.grn = zeros(nTrait, nTrait, nPop);
             pop.phenotype = zeros(nTrait, nPop);
-            pop.savedGrn = zeros(nTrait, nTrait, nPop, nGen);
         end
         
-        % functions
-        pop = develop(pop, nDevSteps, fMagFactor, fDecayRate);  % development from G -> P
+        %% functions
+        % development from genotype to phenotype
+        pop = develop(pop, nDevSteps, fMagFactor, fDecayRate);
+        % mutation of genotype and gene regulation network
         pop = mutate(pop, fMutMagCapGene, fMutMagCapGRN);
+        % recombination of genotype and gene regulation network with single
+        % crossover
         pop = recombine(pop, fitness);
     end
 end

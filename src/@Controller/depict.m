@@ -8,9 +8,10 @@ function depict(con)
 con.calcHebb();
 % get grn matrices ordered by distance to the Hebb matrix
 grn = con.sortByDistance();
+% minimum of three individuals required for plotting
 if con.nPop >= 3
     figure(1);
-% RGB matrix as colormap for heatmap (blue -> white -> red)    
+    % RGB matrix as colormap for heatmap (blue -> white -> red)    
     map = [ 0   , 0   , 1   ; ...
             0.2 , 0.2 , 1   ; ...
             0.4 , 0.4 , 1   ; ...
@@ -69,9 +70,15 @@ if con.nPop >= 3
 end
 
 %% figure 2:
-
+% plot of similiarty of the gene regulation network to unscaled Hebb matrix
+% use with caution: higher grn values provide higher similarity, therefore
+% similarity can stay the same even if some grn entries mutate further away
+% from the Hebb matrix
 grnSimilarity = con.calcGrnSimilarity();
 figure(2);
 plot(1:con.nGen, grnSimilarity);
+title('gene regulation network similarity to Hebb (use with caution)');
+xlabel('generation');
+ylabel('similarity');
 end
 

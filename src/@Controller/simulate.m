@@ -20,7 +20,7 @@ for generation = 1 : con.nGen
         disp(append('progress: ',num2str(generation*100/con.nGen),'%'));
     end
     % save gene regulation networks in every generation
-    con.pop.savedGrn(:, :, :, generation) = con.pop.grn;
+    con.savedGrn(:, :, :, generation) = con.pop.grn;
     % invoke functions in correct order
     con.pop = con.pop.develop(nDevSteps, fMagFactor, fDecayRate);
     con.pop = con.pop.recombine(con.calcFitness());
