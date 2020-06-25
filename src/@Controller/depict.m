@@ -4,10 +4,12 @@ function depict(con)
 % individuals as heatmaps 
 %--------------------------------------------------------------------------
 %% figure 1:
+
 % calcHebb to calculate the Hebb matrix for the last generation
 con.calcHebb();
 % get grn matrices ordered by distance to the Hebb matrix
 grn = con.sortByDistance();
+
 % minimum of three individuals required for plotting
 if con.nPop >= 3
     figure(1);

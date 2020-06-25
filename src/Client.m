@@ -4,7 +4,7 @@ function Client
 % simulation 
 %--------------------------------------------------------------------------
 %% parameter settings
-nGen = 500;      % paper: 8*10^5
+nGen = 500;      % paper: 2*10^5
 nPop = 50;       % paper only uses one representiv indidiual
 nTrait = 8;      % paper: 8
 

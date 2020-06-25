@@ -1,7 +1,7 @@
 function simulate(con)
 %--------------------------------------------------------------------------
-% simulate: regulates and simulates progress in time. contains parameters
-% for 'develop.m' and 'mutate.m'
+% simulate: regulates and simulates progress in time. 
+% contains parameters for 'develop.m' and 'mutate.m'
 %--------------------------------------------------------------------------
 %% hidden parameters:
 % for develop:

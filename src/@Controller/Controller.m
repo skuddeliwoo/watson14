@@ -4,39 +4,45 @@ classdef Controller < handle
 % analyse and picture results
 %--------------------------------------------------------------------------
         
-    %% attributes
-    properties (Access = public)
-        nPop                    % amount of individuals
-        nTrait                  % amount of traits per individual
-        nGen                    % amount of generations
-        target                  % target phenotype (selective enviroment)
-        hebb                    % Hebb matrix
-        pop                     % handle on 'Population.m'
-        savedGrn                % saved grns for each generation
+%% attributes
+properties (Access = public)
+    hebb                    % Hebb matrix
+    nPop                    % amount of individuals
+    nTrait                  % amount of traits per individual
+    nGen                    % amount of generations
+    pop                     % handle on 'Population.m'
+    savedGrn                % saved grns for each generation
+    target                  % target phenotype (selective enviroment)
         
-    end
+end
     
-    methods
-        %% constructor
-        function con = Controller(nGen, nPop, nTrait)
-            con.nGen = nGen;
-            con.nTrait = nTrait;
-            con.nPop = nPop;
-            con.pop = Population(nPop, nTrait);
-            % set random target with values (-1, 1)
-            con.target = rand(nTrait, 1);
-                con.target( con.target < 0.5 ) = -1;
-                con.target( con.target >= 0.5) =  1;
-            con.savedGrn = zeros(nTrait, nTrait, nPop, nGen);
-        end
-        
-        %% functions
-        fit = calcFitness(con);   % calculate fitness for recombination
-        grnSimilarity = calcGrnSimilarity(con); % simple analysis of grn tendencies over time
-        calcHebb(con);            % calculate the Hebb matrix
-        depict(con);              % graphical output of simulation
-        simulate(con);            % manages simulation process
-        sortedGrns = sortByDistance(con); % sort function for 'depict.m'
-        
+methods
+    %% constructor
+    function con = Controller(nGen, nPop, nTrait)
+        con.nGen = nGen;
+        con.nTrait = nTrait;
+        con.nPop = nPop;
+        con.pop = Population(nPop, nTrait);
+        % set random target with values (-1, 1)
+        con.target = rand(nTrait, 1);
+            con.target( con.target < 0.5 ) = -1;
+            con.target( con.target >= 0.5) =  1;
+        con.savedGrn = zeros(nTrait, nTrait, nPop, nGen);
     end
+        
+    %% functions
+    % calculate fitness for recombination
+    fit = calcFitness(con);   
+    % simple analysis of grn tendencies over time
+    grnSimilarity = calcGrnSimilarity(con); 
+    % calculate the Hebb matrix
+    calcHebb(con);          
+    % graphical output of simulation
+    depict(con);              
+    % manages simulation process
+    simulate(con);            
+    % sort function for 'depict.m'
+    sortedGrns = sortByDistance(con); 
+        
+end
 end
