@@ -20,14 +20,7 @@ con.depict();
 toc
 
 %% Todo-list:
-% - !!!!!!! develop: limit to 1 / -1
-% - depict: phenotype
 % - properties von Watson14 auf privat setzen (ganz am Ende der
 % implementierung)
-% - calcFitness: Formel aus Paper (fitness = 1+phenotype*target)
-% - nPop % 2 == 0?
-%% Fragen an Pauli:
-% - develop: for-loop
-% - code von ihm copy pasten?
 end
 

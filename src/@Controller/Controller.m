@@ -21,7 +21,13 @@ methods
     function con = Controller(nGen, nPop, nTrait)
         con.nGen = nGen;
         con.nTrait = nTrait;
-        con.nPop = nPop;
+        % amount of individuals must be divisible by 2 for correct
+        % recombination
+        if rem(nPop, 2) == 0
+            con.nPop = nPop;
+        else
+            con.nPop = nPop + 1;
+        end
         con.pop = Population(nPop, nTrait);
         % set random target with values (-1, 1)
         con.target = rand(nTrait, 1);
