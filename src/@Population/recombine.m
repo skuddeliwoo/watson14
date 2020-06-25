@@ -1,7 +1,12 @@
 function pop = recombine(pop, fitness)
 %--------------------------------------------------------------------------
-% recombine:
-% [insert description]
+% recombine: genetic algorithm to represent sexuell recombination.
+% genotype and gen regulation network is recombined with a single
+% crossover. 
+% recombination depends on fitness of individuals: higher
+% fitness values awards a higher probability of getting selected.
+% selection through roulette wheel.
+% code is based on Niall Palfreyman's GAs (HSWT BPI)
 %--------------------------------------------------------------------------
 
 % select
@@ -12,7 +17,6 @@ cumFitness = cumsum(fitness);
 markers = rand(1,pop.nPop);
 [~,~,parents] = histcounts(markers, [0 cumFitness]);
 parents = parents(randperm(pop.nPop));
-% parents = find
 
 % 1st half of parents are Mummies; 2nd half are Daddies:
 maternal.genotype = pop.genotype(:,parents(1:pop.nPop/2));

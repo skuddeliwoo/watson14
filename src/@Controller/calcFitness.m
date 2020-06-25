@@ -1,8 +1,7 @@
 function fit = calcFitness(con)
 %--------------------------------------------------------------------------
-% calcFitness:
-% [insert description]
-% calcFitness: Formel aus Paper (fitness = 1+phenotype*target)
+% calcFitness: calculaltion of fitness depending on distance of phenotype
+% to the target (represents a selective enviroment)
 %--------------------------------------------------------------------------
 % objective function (from GATutorial)
 diff = con.pop.phenotype - con.target;
