@@ -1,9 +1,12 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{float}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\renewcommand{\familydefault}{\sfdefault}
 
-\title{BerichtTitle}
-\date{22.06.2020}
+\title{Evolution of correlation between traits in a sexually recombining population within a single selective environment}
+\date{June 2020}
 \author{Simon Pirkl, Andreas Rohrbach}
 
 \begin{document}
@@ -21,6 +24,73 @@
 
 \tableofcontents
 \newpage
+
+\section{Abstract}
+
+Watson et al. investigated the evolution of phenotypic correlations and "developmental memory" \cite{watson2014}. In one of their experiments, an evolutionary model was simulated, containing a single representative individual undergoing individual mutations. This simplification is legit under the assumption of SSWM (strong selection, weak mutation). 
+To verify their results in a more realistic model of evolution involving sexual recombination, the experiment was replicated with a more sophisticated fitness evaluation and simple sexual recombination.
+
+It was --Results--
+
+\section{Introduction}
+
+The phenotypic variants we observe are not purely a product of their genes, but of multiple factors, with developmental processes being one of them \cite{laland2015}. In the work of Watson et al., the evolution of a network of recurrent nonlinear ontogenetic interactions was investigated. Such a network could represent a gene regulation network. In their work, multiple experiments were conducted to better understand the evolution of such networks. In the first experiment, the basic effect of selection on interaction coefficients as a function of a single selective environment was assessed. This experiment was conducted under the assumptions of SSWM (strong selection, weak mutation), under which it is sufficient to model the evolution of just one representative individual undergoing individual mutations. 
+
+Watson et al's central result is that correlations in their single gene regulation network evolve according to Hebb’s rule \cite{hebb}, a simple associative neural learning mechanism, often summarized as "Cells that fire together wire together". \cite{Lowel209} Translated to genes and traits, it says: if evolution selects a correlation of multiple gene states, those gene states will also become developmentally correlated. This could be summarized as "traits that are selected together correlate together". \cite{watson2014}
+
+
+Since mutation and sexual recombination generate greater genetic variation, this could lead to correlations evolving not in accordance with Hebb's rule. However, we postulate that Hebb’s rule is driven not by mutation and recombination, but by selection.
+
+\section{Foundation}
+
+
+
+- (evo devo)
+
+- grns
+
+- grn as matrix
+
+- hebb
+
+
+\section{Methods}
+
+- traits, genotype and phenotype as column vector with values in [-1; 1]
+
+- formulas for:
+	- evolution of phenotype
+	- selection and recombination
+	- mutation
+	- hebb
+
+
+
+\section{Results}
+
+- for these parameters, this output
+
+- simulation with differing population sizes (common target)
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{./img/dummy.jpg}
+	\caption{This is just a dummy graphic}
+	\label{fig:dummy}
+\end{figure}
+
+
+\section{Discussion}
+
+- interpret results
+
+- so much gentic variation, that genes are more important than grn?
+
+- from where parameters like 1/15 for mutational rate of gene to grn?
+
+- when in later generations more frequencies are quite fit, maybe the selective pressure should increase to reach even better grns
+
+- more experiments from watson14 should be verified with this more realistic model of evolution
+
 
 \section{Stuff / Ideas / Todos}
 
@@ -59,56 +129,14 @@ If we reproduce Watson et al’s experiment 1 (single selective environment) for
 % \right]
 % \end{equation}
 
-\section{Abstract}
-
-Watson et al. investigated the evolution of phenotypic correlations and "developmental memory". In one of their experiments, an evolutionary model was simulated, containing a single representative individual undergoing individual mutations. This simplification is legit under the assumption of SSWM (strong selection, weak mutation). 
-To verify their results in a more realistic model of evolution involving sexual recombination, the experiment was replicated with a more sophisticated fitness evaluation and simple sexual recombination.
-
-- summarize results?
-
-\section{Introduction}
-
-The phenotypic variants we observe are not purely a product of their genes, but of multiple factors, with developmental processes being one of them. In the work of Watson et al., the evolution of a network of recurrent nonlinear ontogenetic interactions was investigated. Such a network could represent a gene regulation network. In their work, multiple experiments were conducted to better understand the evolution of such networks. In the first experiment, the basic effect of selection on interaction coefficients as a function of a single selective environment was assessed. This experiment was conducted under the assumptions of SSWM (strong selection, weak mutation), under which it is sufficient to model the evolution of just one representative individual undergoing individual mutations. 
-
-
-\section{Foundation}
-
-- (evo devo)
-- grns
-- grn as matrix
-- hebb
-
-
-\section{Methods}
-
-- traits, genotype and phenotype as column vector with values in [-1; 1]
-- formulas for:
-	- evolution of phenotype
-	- selection and recombination
-	- mutation
-	- hebb
-
-
-
-\section{Results}
-
-- for these parameters, this output
-- simulation with differing population sizes (common target)
-
-\section{Discussion}
-
-- interpret results
-- so much gentic variation, that genes are more important than grn?
-- from where parameters like 1/15 for mutational rate of gene to grn?
-- when in later generations more frequencies are quite fit, maybe the selective pressure should increase to reach even better grns
-- more experiments from watson14 should be verified with this more realistic model of evolution
-
-\newpage
+% \newpage
 
 
 \begin{appendix}
   \listoffigures
   \listoftables
+  \bibliography{Bericht} 
+  \bibliographystyle{ieeetr}
 \end{appendix}
 
 \end{document}
