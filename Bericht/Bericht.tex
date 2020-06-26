@@ -34,16 +34,16 @@ It was --Results--
 
 \section{Introduction}
 
-The phenotypic variants we observe are not purely a product of their genes, but of multiple factors, with developmental processes being one of them \cite{laland2015}. In the work of Watson et al., the evolution of a network of recurrent nonlinear ontogenetic interactions was investigated. Such a network could represent a gene regulation network. In their work, multiple experiments were conducted to better understand the evolution of such networks. In the first experiment, the basic effect of selection on interaction coefficients as a function of a single selective environment was assessed. This experiment was conducted under the assumptions of SSWM (strong selection, weak mutation), under which it is sufficient to model the evolution of just one representative individual undergoing individual mutations. 
+The phenotypic variants we observe are not purely a product of their genes, but of multiple factors, with developmental processes being one of them \cite{laland2015}. In the work of Watson et al, the evolution of a network of recurrent nonlinear ontogenetic interactions was investigated. Such a network could represent a gene regulation network. In their work, multiple experiments were conducted to better understand the evolution of such networks. In the first experiment, the basic effect of selection on interaction coefficients as a function of a single selective environment was assessed. This experiment was conducted under the assumptions of SSWM (strong selection, weak mutation), under which it is sufficient to model the evolution of just one representative individual undergoing individual mutations. 
 
-Watson et al's central result is that correlations in their single gene regulation network evolve according to Hebb’s rule \cite{hebb}, a simple associative neural learning mechanism, often summarized as "Cells that fire together wire together". \cite{Lowel209} Translated to genes and traits, it says: if evolution selects a correlation of multiple gene states, those gene states will also become developmentally correlated. This could be summarized as "traits that are selected together correlate together". \cite{watson2014}
+One of Watson et al's results is that correlations in their single gene regulation network evolve according to Hebb’s rule \cite{hebb}, a simple associative neural learning mechanism, often summarized as "Cells that fire together wire together" \cite{Lowel209}. Translated to genes and traits, it would state: if evolution selects a correlation of multiple gene states, those gene states will also become developmentally correlated (see also Pavlicev et al. 2011 \cite{pavlicev2011}). This could be summarized as "traits that are selected together correlate together" \cite{watson2014}.
 
-
-Since mutation and sexual recombination generate greater genetic variation, this could lead to correlations evolving not in accordance with Hebb's rule. However, we postulate that Hebb’s rule is driven not by mutation and recombination, but by selection.
+We aim to verify their findings in a population context with sexual recombination.
+Since mutation and sexual recombination generate greater genetic variation, this could lead to correlations evolving not in accordance with Hebb's rule. However, we postulate that Hebb’s rule is driven not by mutation and recombination, but by selection. If we reproduce Watson et al’s experiment 1 (single selective environment) for a network population with mutation and recombination, and our adaptive theory is correct, we predict that Hebb’s rule will apply to the evolved networks.
 
 \section{Foundation}
 
-
+As in the work of Watson et al, we model our gene regulation network (grn) as a two dimensional matrix, containing $nTrait * nTrait$ elements, with $nTrait$ being the number of genes and the number of corresponding traits as well. Each element of the matrix contains the correlation coefficient between two genes/traits, and is in the range $[-1; +1]$, where 0 corresponds to no correlation at all, a negative coefficient indicating anticorrelation (or negative correlation), and a positive coefficient indicating positive correlation.
 
 - (evo devo)
 
