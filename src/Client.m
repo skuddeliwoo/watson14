@@ -19,8 +19,5 @@ con.simulate();
 con.depict();
 toc
 
-%% Todo-list:
-% - properties von Watson14 auf privat setzen (ganz am Ende der
-% implementierung)
 end
 

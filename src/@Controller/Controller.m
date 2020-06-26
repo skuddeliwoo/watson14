@@ -5,7 +5,7 @@ classdef Controller < handle
 %--------------------------------------------------------------------------
         
 %% attributes
-properties (Access = public)
+properties 
     hebb                    % Hebb matrix
     nPop                    % amount of individuals
     nTrait                  % amount of traits per individual
