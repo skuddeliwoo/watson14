@@ -60,20 +60,39 @@ Each element of the matrix contains the correlation coefficient between two gene
 -hebb
 
 \subsection{Genotype and phenotype}
-- traits, genotype and phenotype as column vector with values in [-1; 1]
 
-- mutation
+The genotype and phenotype are represented by column vectors with $nTrait$ elements. Each element contains a value in the range $[-1; 1]$ which represents the characteristic of the traits.
+
+- magnitude instead of characteristic?
+- $\bm{P} and \bm{G}$
+
+Each generation, all genotypes and gene regulation networks are mutated by adding a value in a predefined range to one element of each individual. 
+- to one element of each individual -> for genotype and grn
+The genotype is mutating faster within the range $[-0.1; 0.1]$ than the gene regulation network, which range is 1/15th of genotype mutation range ($[-0.0067; 0.0067]$).
+
+- which range is 1/15 -> mutational increment?
+
+-lookup: is it really a range or a set?
 
 \subsection{Ontogenetic development}
-- evolution of phenotype, timesteps...
+
+In every generation the phenotypes have to be developed through time, influenced by the gene regulation network. The starting point is defined by the genotype.
 
 \begin{equation}
 	\bm{P}(0) = \bm{G}
 \end{equation}
 
+-eq as inline?
+
+After defining the initial phenotype, the development of individuals is represented by simulating through developmental time steps (set at $NDevSteps$ = 10). In each timestep the phenotype experiences the influence of the gene regulation network, calculated by the formula:
+
+- everywhere: individuals -> population frequencies
+
 \begin{equation}
 	\bm{P}(t+1) = \bm{P}(t) + \tau_1\sigma(\bm{B}*\bm{P}(t))-\tau_2\bm{P}(t)
 \end{equation}
+
+- cite Watson 14 
 
 - sigmoid: tanh
 
