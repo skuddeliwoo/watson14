@@ -1,4 +1,8 @@
 *.asv
 *.aux
 *.log
+*.blg
+*.bbl
 *.toc
+*.lot
+*.lof
