@@ -3,7 +3,6 @@ function depict(con)
 % depict: plots the Hebb matrix and GRN matrices of some chosen
 % individuals as heatmaps 
 %--------------------------------------------------------------------------
-%% figure 1:
 
 % calcHebb to calculate the Hebb matrix for the last generation
 con.calcHebb();
@@ -12,7 +11,6 @@ grn = con.sortByDistance();
 
 % minimum of three individuals required for plotting
 if con.nPop >= 3
-    figure(1);
     % RGB matrix as colormap for heatmap (blue -> white -> red)    
     map = [ 0   , 0   , 1   ; ...
             0.2 , 0.2 , 1   ; ...
@@ -57,17 +55,5 @@ if con.nPop >= 3
     caxis(h, [-scale scale]);
 
 end
-
-%% figure 2:
-% plot of similiarty of the gene regulation network to unscaled Hebb matrix
-% use with caution: higher grn values provide higher similarity, therefore
-% similarity can stay the same even if some grn entries mutate further away
-% from the Hebb matrix
-grnSimilarity = con.calcGrnSimilarity();
-figure(2);
-plot(1:con.nGen, grnSimilarity);
-title('gene regulation network similarity to Hebb (use with caution)');
-xlabel('generation');
-ylabel('similarity');
 end
 
