@@ -106,11 +106,6 @@ After defining the initial phenotype, the development of individuals is represen
 For the parameters $nGen = 500$, $nPop = 20$, and $nTrait = 8$, the simulation produced the result in Figure 1
 
 
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{./img/results/pop100.png}
-	\caption{Representation of gene regulation networks. Top left: Matrix calculated through Hebb's rule. Top right: Average gene regulation network, arithmetic mean of all gene regulation networks. Bottom left: Closest gene regulation network, most similar to Hebb matrix. Bottom right: Furthest gene regulation network, least similar to Hebb matrix.}
-	\label{fig:pop100}
-\end{figure}
 
 
 \section{Analysis and Discussion}
@@ -129,6 +124,15 @@ A possible way to further increase the quality of the evolved gene regulation ne
 \newline
 
 Furthermore the choice of the relative mutational increment range of genotype and gene regulation network mutations ($1/15$) from Watson et al seems to be tuned to their specific experiment design. The validity to choose the same parameters for a sexual recombination model is therefore questionable.
+
+\section{Appendix}
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{./img/results/pop100.png}
+	\caption{Representation of gene regulation networks. Top left: Matrix calculated through Hebb's rule. Top right: Average gene regulation network, arithmetic mean of all gene regulation networks. Bottom left: Closest gene regulation network, most similar to Hebb matrix. Bottom right: Furthest gene regulation network, least similar to Hebb matrix.}
+	\label{fig:pop100}
+\end{figure}
+
 
 \begin{appendix}
   \bibliography{Bericht} 
