@@ -50,14 +50,18 @@ If we reproduce Watson et al’s experiment 1 (single selective environment) for
 
 \section{Methods}
 
-The population was modeled ...
+The population is modeled with individuals defined by their genotype and gene regulation network. 
+The evolution process is simulated by generating a new set of individuals through recombination based on their previously developed adult phenotype, which is used to calculate the fitness.
+Furthermore the recombined individuals experiences a mutation before developing to their adult state.
 
 \subsection{Gene regulation network}
 
 As in the work of Watson et al, we model our gene regulation network (grn) as a two dimensional matrix $\bm{B}$, containing $nTrait * nTrait$ elements, with $nTrait$ being the number of genes and the number of corresponding traits as well.
 Each element of the matrix contains the correlation coefficient between two genes/traits, and is in the range $[-1; +1]$, where 0 corresponds to no correlation at all, a negative coefficient indicating anticorrelation (or negative correlation), and a positive coefficient indicating positive correlation.
 
--hebb
+To evalute our results, we used a matrix caluclated by Hebb's rule to recreate Watsons (2014) experiment 1. This is valid as Watson stated that incremental inheritable changes towards a given target agrees with the principles of neural learning mechanisms and therefore follows the Hebbian theory.
+
+formel: delta w sub ij = r * s sub i * s sub j (r > 0)
 
 \subsection{Genotype and phenotype}
 
