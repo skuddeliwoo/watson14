@@ -4,6 +4,7 @@
 \usepackage{float}
 \usepackage{bm}
 \usepackage{undertilde}
+\usepackage{subfig}
 \usepackage[a4paper, total={6in, 9in}]{geometry}
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -50,43 +51,40 @@ If we reproduce Watson et al’s experiment 1 (single selective environment) for
 
 \section{Methods}
 
-The population was modeled ...
+The population is modeled with individuals defined by their genotype, phenotype and gene regulation network. 
+The evolution process is simulated by generating a new set of individuals through sexual recombination based on their previously developed adult phenotype, which is used to calculate the fitness. Furthermore the recombined individuals experiences a mutation before developing to their adult state.
+
 
 \subsection{Gene regulation network}
 
-As in the work of Watson et al, we model our gene regulation network (grn) as a two dimensional matrix $\bm{B}$, containing $nTrait * nTrait$ elements, with $nTrait$ being the number of genes and the number of corresponding traits as well.
+As in the work of Watson et al, the gene regulation network (grn) is modeled as a two dimensional matrix $\bm{B}$, containing $nTrait * nTrait$ elements, with $nTrait$ being the number of genes and the number of corresponding traits as well.
 Each element of the matrix contains the correlation coefficient between two genes/traits, and is in the range $[-1; +1]$, where 0 corresponds to no correlation at all, a negative coefficient indicating anticorrelation (or negative correlation), and a positive coefficient indicating positive correlation.
 
--hebb
+For the evaluation of the evolved gene reegulation networks, ...
+
+To evalute our results, we used a matrix caluclated by Hebb's rule to recreate Watsons (2014) experiment 1. This is valid as Watson stated that incremental inheritable changes towards a given target agrees with the principles of neural learning mechanisms and therefore follows the Hebbian theory.
+
+- selective environment
+
+- r
+
+\begin{equation}
+	\Delta w_{ij} = r * s_i * s_j \\
+	(r > 0)
+\end{equation}
 
 \subsection{Genotype and phenotype}
 
-The genotype and phenotype are represented by column vectors with $nTrait$ elements. Each element contains a value in the range $[-1; 1]$ which represents the characteristic of the traits.
+The genotype $\bm{G}$ and phenotype $\bm{P}$ are represented by column vectors with $nTrait$ elements. Each element contains a value in the range $[-1; 1]$ which represents the expression of the traits.
 
-- magnitude instead of characteristic?
-- $\bm{P} and \bm{G}$
-
-Each generation, all genotypes and gene regulation networks are mutated by adding a value in a predefined range to one element of each individual. 
-- to one element of each individual -> for genotype and grn
-The genotype is mutating faster within the range $[-0.1; 0.1]$ than the gene regulation network, which range is 1/15th of genotype mutation range ($[-0.0067; 0.0067]$).
-
-- which range is 1/15 -> mutational increment?
-
--lookup: is it really a range or a set?
+Each generation, for every individual, the genotype and gene regulation network is mutated by adding a value in a predefined range to one element.
+The genotype is mutating faster within the range $[-0.1; 0.1]$ than the gene regulation network, which mutational increment is 1/15th of the genotype mutation range ($[-0.0067; 0.0067]$).
 
 \subsection{Ontogenetic development}
 
-In every generation the phenotypes have to be developed through time, influenced by the gene regulation network. The starting point is defined by the genotype.
+In every generation the phenotypes have to be developed through time, influenced by the gene regulation network. The starting point is defined by the genotype. $\bm{P}(0) = \bm{G}$
 
-\begin{equation}
-	\bm{P}(0) = \bm{G}
-\end{equation}
-
--eq as inline?
-
-After defining the initial phenotype, the development of individuals is represented by simulating through developmental time steps (set at $NDevSteps$ = 10). In each timestep the phenotype experiences the influence of the gene regulation network, calculated by the formula:
-
-- everywhere: individuals -> population frequencies
+After defining the initial phenotype, the development of individuals is represented by simulating through developmental time steps (set at $NDevSteps$ = 10). In each timestep the phenotype experiences the influence of the gene regulation network, calculated by the formula: 
 
 \begin{equation}
 	\bm{P}(t+1) = \bm{P}(t) + \tau_1\sigma(\bm{B}*\bm{P}(t))-\tau_2\bm{P}(t)
@@ -105,77 +103,34 @@ After defining the initial phenotype, the development of individuals is represen
 
 \section{Results}
 
-- for these parameters, this output
+For the parameters $nGen = 500$, $nPop = 20$, and $nTrait = 8$, the simulation produced the result in Figure 1
 
-- simulation with differing population sizes (common target)
 
 \begin{figure}[H]
-	\includegraphics[width=\linewidth]{./img/dummy.jpg}
-	\caption{This is just a dummy graphic}
-	\label{fig:dummy}
+	\includegraphics[width=\linewidth]{./img/results/pop100.png}
+	\caption{Representation of gene regulation networks. Top left: Matrix calculated through Hebb's rule. Top right: Average gene regulation network, arithmetic mean of all gene regulation networks. Bottom left: Closest gene regulation network, most similar to Hebb matrix. Bottom right: Furthest gene regulation network, least similar to Hebb matrix.}
+	\label{fig:pop100}
 \end{figure}
 
 
-\section{Discussion}
+\section{Analysis and Discussion}
 
-- interpret results
+As it could be seen in Fig. 1, the evolved gene regulation networks have a striking similiarity to the Hebb matrix. In our view, this confirms the results of Watson et al's Experiment 1 in a more realistic model of evolution involving sexual recombination.
 
-- so much gentic variation, that genes are more important than grn?
+It should be noted, that the magnitudes of the correlation coefficients are significantly lower (approx. 1/10) than in the results of Watson et al.
+A reason for this is probably the reduced number of generations in this simulation ($5*10^2$, compared to Watson et al: $2*10^5$).
+The decision to run the simulation over less generations was made because it was observed that the quality of the gene regulation networks (similarity to Hebb matrix) decreased after a certain amount of generations (approx. 500 - 600, depending on population size).
 
-- from where parameters like 1/15 for mutational rate of gene to grn?
+When investigating the reasons for this decrease of quality, it was found that the developing individuals reached maximum trait expression levels $\{-1; +1\}$ already before being fully developed (at approx. generation 600 with $nPop = 100$).
+Since mutation and sexual recombination in a population context generate greater genetic variation than in Watson et al's setting with one representative individual, fit individuals emerge quicker.
+But not only fitter individuals emerge quicker, but also "fit" genotypes, so that the influence of the gene regulation network on the fitness could be considerably less relevant than in the model of Watson et al.
+Therefore a direct comparison of results for the same number of generations is not sensible.
+A possible way to further increase the quality of the evolved gene regulation networks could be increasing the selective pressure acting on the population.
+\newline
 
-- when in later generations more frequencies are quite fit, maybe the selective pressure should increase to reach even better grns ?
-
-- more experiments from watson14 should be verified with this more realistic model of evolution
-
-- Sniegowskiand Murphy 2006 ???
-
-- could we really achive good grns faster? since in 1 generation, watson have 1 mutation, we have nPop mutations.... 
-
-
-\section{Stuff / Ideas / Todos}
-
-\subsection{Topic}
-\subsubsection{Research question}
-Watson et al derive their results from an evolutionary model containing a single representative individual undergoing individual mutations, motivating this model from the assumption of SSWM (strong selection, weak mutation). Do their results still hold in a more realistic model of evolution involving sexual recombination?
-
-\subsubsection{Adaptive theory}
-Watson et al’s central result is that correlations in their single gene regulation network evolve according to Hebb’s rule: if evolution selects a correlation of multiple gene states, those gene states will also become developmentally correlated. Since mutation and sexual recombination generate greater genetic variation, this could lead to correlations evolving not in accordance with Hebb's rule. However, we postulate that Hebb’s rule is driven not by mutation and recombination, but by selection.
-
-\subsubsection{Research hypothesis}
-If we reproduce Watson et al’s experiment 1 (single selective environment) for a network population with mutation and recombination, and our adaptive theory is correct, we predict that Hebb’s rule will apply to the evolved networks.
-
-% \subsection{cheat sheet}
-% include a graphic:
-
-% \begin{figure}[h!]
-% 	\includegraphics[width=\linewidth]{./img/dummy.jpg}
-% 	\caption{This is just a dummy graphic}
-% 	\label{fig:dummy}
-% \end{figure}
-
-
-% some inline math: $f(x) = \sqrt{4*\pi}$ , or not:
-% \begin{equation}
-% 	f(x) = \frac{x^2}{7x}
-% \end{equation}
-
-% matrices:
-% \begin{equation}
-% \left[
-% \begin{matrix}
-% 1 & 0 & 1\\
-% 0 & 1 & 0
-% \end{matrix}
-% \right]
-% \end{equation}
-
-% \newpage
-
+Furthermore the choice of the relative mutational increment range of genotype and gene regulation network mutations ($1/15$) from Watson et al seems to be tuned to their specific experiment design. The validity to choose the same parameters for a sexual recombination model is therefore questionable.
 
 \begin{appendix}
-  \listoffigures
-  \listoftables
   \bibliography{Bericht} 
   \bibliographystyle{ieeetr}
 \end{appendix}
