@@ -26,7 +26,7 @@ if con.nPop >= 3
             1   , 0.2 , 0.2 ; ...
             1   , 0   , 0   ];
         
-    subplot(2,3,1);
+    subplot(2,2,1);
     % using hebb magnitudes to scale all grn heatmaps
     scale = abs(con.hebb(1));
     h = heatmap(con.hebb, 'Colormap', map);
@@ -35,40 +35,27 @@ if con.nPop >= 3
     h.YLabel = 'gene j';
     caxis(h, [-scale scale]);
 
-    subplot(2,3,2)
+    subplot(2,2,2)
     h = heatmap(mean(grn,3), 'Colormap', map);
     h.Title = 'average grn';
     h.XLabel = 'gene i';
     h.YLabel = 'gene j';
     caxis(h, [-scale scale]);
 
-    subplot(2,3,3)
+    subplot(2,2,3)
     h = heatmap(grn(:,:,1), 'Colormap', map);
     h.Title = 'closest grn';
     h.XLabel = 'gene i';
     h.YLabel = 'gene j';
     caxis(h, [-scale scale]);
 
-    subplot(2,3,4)
+    subplot(2,2,4)
     h = heatmap(grn(:,:,end), 'Colormap', map);
     h.Title = 'furthest grn';
     h.XLabel = 'gene i';
     h.YLabel = 'gene j';
     caxis(h, [-scale scale]);
 
-    subplot(2,3,5)
-    h = heatmap(grn(:,:,end-1), 'Colormap', map);
-    h.Title = '2nd furthest grn';
-    h.XLabel = 'gene i';
-    h.YLabel = 'gene j';
-    caxis(h, [-scale scale]);
-
-    subplot(2,3,6)
-    h = heatmap(grn(:,:,end-2), 'Colormap', map);
-    h.Title = '3nd furthest grn';
-    h.XLabel = 'gene i';
-    h.YLabel = 'gene j';
-    caxis(h, [-scale scale]);
 end
 
 %% figure 2:
