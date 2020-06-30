@@ -11,7 +11,7 @@ objeval = sum(diff.*diff,1);
 % Calculate standard deviation of fitnesses:
 sigma = std(objeval);
 if sigma ~= 0
-    fitness = 1+(mean(objeval)-objeval) / sigma; % Sigma Scaling??
+    fitness = 1+(mean(objeval)-objeval) / sigma;
     fitness(fitness<=0) = 0;
 else
     fitness = ones(1,con.nPop);
