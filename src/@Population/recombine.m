@@ -6,7 +6,7 @@ function pop = recombine(pop, fitness)
 % recombination depends on fitness of individuals: higher
 % fitness values awards a higher probability of getting selected.
 % parents are selected through Stochastic Universal Sampling
-% code is founded on Code by Niall Palfreyman (Package 01GAPackage,
+% code is founded on code by Niall Palfreyman (Package 01GAPackage,
 % Class @BP302GATutorial)
 %--------------------------------------------------------------------------
 

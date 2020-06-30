@@ -2,6 +2,8 @@ function fit = calcFitness(con)
 %--------------------------------------------------------------------------
 % calcFitness: calculaltion of fitness depending on distance of phenotype
 % to the target (represents a selective enviroment)
+% code is founded on code by Niall Palfreyman (Package 01GAPackage,
+% Class @BP302GATutorial)
 %--------------------------------------------------------------------------
 % objective function (from GATutorial)
 diff = con.pop.phenotype - con.target;
