@@ -23,7 +23,7 @@ parents = parents(randperm(pop.nPop));
 maternal.genotype = pop.genotype(:,parents(1:pop.nPop/2));
 maternal.grn = pop.grn(:,:,parents(1:pop.nPop/2));
 paternal.genotype = pop.genotype(:,parents(pop.nPop/2+1:pop.nPop));
-paternal.grn = pop.grn(:,:,parents(1:pop.nPop/2));
+paternal.grn = pop.grn(:,:,parents(pop.nPop/2+1:pop.nPop));
 
 % Create crossover masks ...
 xover.genotype = false(pop.nTrait,pop.nPop/2);
