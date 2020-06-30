@@ -5,8 +5,9 @@ function pop = recombine(pop, fitness)
 % crossover. 
 % recombination depends on fitness of individuals: higher
 % fitness values awards a higher probability of getting selected.
-% selection through roulette wheel.
-% code is based on Niall Palfreyman's GAs (HSWT BPI)
+% parents are selected through Stochastic Universal Sampling
+% code is founded on Code by Niall Palfreyman (Package 01GAPackage,
+% Class @BP302GATutorial)
 %--------------------------------------------------------------------------
 
 % select
